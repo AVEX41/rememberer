@@ -24,7 +24,7 @@
 		69ECADE229FFB2AE000E2596 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		69ECADE429FFB2AE000E2596 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		69ECADE729FFB2AE000E2596 /* rememberer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = rememberer.xcdatamodel; sourceTree = "<group>"; };
-		69ECADEE29FFB32B000E2596 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = rememberer/README.md; sourceTree = "<group>"; };
+		69ECADEE29FFB32B000E2596 /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; name = README.md; path = rememberer/README.md; sourceTree = "<group>"; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
