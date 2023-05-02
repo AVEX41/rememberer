@@ -37,6 +37,13 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
+                ToolbarItem {
+                    withAnimation() {
+                        NavigationLink(destination: CreationView()) {
+                            Label("Add Item", systemImage: "square.and.arrow.up")
+                        }
+                    }
+                }
             }
             Text("Select an item")
         }

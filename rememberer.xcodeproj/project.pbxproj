@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		693E46402A00D871009CFF45 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E463F2A00D871009CFF45 /* CreationView.swift */; };
 		69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDB29FFB2AC000E2596 /* remembererApp.swift */; };
 		69ECADDE29FFB2AC000E2596 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDD29FFB2AC000E2596 /* ContentView.swift */; };
 		69ECADE029FFB2AE000E2596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69ECADDF29FFB2AE000E2596 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		693E463E2A00D725009CFF45 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		693E463F2A00D871009CFF45 /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		69ECADD829FFB2AC000E2596 /* rememberer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69ECADDB29FFB2AC000E2596 /* remembererApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remembererApp.swift; sourceTree = "<group>"; };
 		69ECADDD29FFB2AC000E2596 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				69ECADDB29FFB2AC000E2596 /* remembererApp.swift */,
 				69ECADDD29FFB2AC000E2596 /* ContentView.swift */,
+				693E463F2A00D871009CFF45 /* CreationView.swift */,
 				69ECADDF29FFB2AE000E2596 /* Assets.xcassets */,
 				69ECADE429FFB2AE000E2596 /* Persistence.swift */,
 				69ECADE629FFB2AE000E2596 /* rememberer.xcdatamodeld */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69ECADE529FFB2AE000E2596 /* Persistence.swift in Sources */,
+				693E46402A00D871009CFF45 /* CreationView.swift in Sources */,
 				69ECADE829FFB2AE000E2596 /* rememberer.xcdatamodeld in Sources */,
 				69ECADDE29FFB2AC000E2596 /* ContentView.swift in Sources */,
 				69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */,
