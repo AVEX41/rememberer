@@ -29,18 +29,21 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .destructiveAction) {
                     EditButton()
                 }
-                ToolbarItem {
+                // old ToolBarItem that makes an Date() string, into the Database
+                /*
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-                ToolbarItem {
+                */
+                ToolbarItem(placement: .navigationBarLeading) {
                     withAnimation() {
                         NavigationLink(destination: CreationView()) {
-                            Label("Add Item", systemImage: "square.and.arrow.up")
+                            Label("Add Item", systemImage: "plus")
                         }
                     }
                 }
