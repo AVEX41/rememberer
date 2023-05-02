@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+
 struct CreationView: View {
     var body: some View {
-        VStack() {
-            Text("Select a name for your new ToDo list")
+        @State var TextName = ""
+
+        List {
+            TextField("Enter name", text: $TextName)
         }
-        .padding(.all)
     }
 }
 
