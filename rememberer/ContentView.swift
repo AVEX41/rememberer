@@ -32,7 +32,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .destructiveAction) {
                     EditButton()
                 }
-                // old ToolBarItem that makes an Date() string, into the Database
+                // old ToolbarItem that makes an Date() string, into the Database
                 /*
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: addItem) {
@@ -49,6 +49,7 @@ struct ContentView: View {
                 }
             }
             Text("Select an item")
+                .font(.largeTitle)
         }
     }
 

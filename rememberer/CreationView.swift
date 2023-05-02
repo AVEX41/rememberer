@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CreationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack() {
+            Text("Select a name for your new ToDo list")
+        }
+        .padding(.all)
     }
 }
 
