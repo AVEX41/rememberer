@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		693E463E2A00D725009CFF45 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		69ECADD829FFB2AC000E2596 /* rememberer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69ECADDB29FFB2AC000E2596 /* remembererApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remembererApp.swift; sourceTree = "<group>"; };
 		69ECADDD29FFB2AC000E2596 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 		69ECADCF29FFB2AC000E2596 = {
 			isa = PBXGroup;
 			children = (
+				693E463E2A00D725009CFF45 /* README.md */,
 				69ECADDA29FFB2AC000E2596 /* rememberer */,
 				69ECADD929FFB2AC000E2596 /* Products */,
 			);
