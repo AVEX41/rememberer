@@ -9,15 +9,41 @@ import SwiftUI
 
 
 struct CreationView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @State var TextName = ""
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
+        animation: .default)
+    private var pages: FetchedResults<Page>
+    
     var body: some View {
-        @State var TextName = ""
-
+        
+        
         List {
             TextField("Enter name", text: $TextName)
+            Button(action: Submiter) {
+                Label("Add Item", systemImage: "plus")
+            }
+        }
+    }
+    
+    private func Submiter() {
+        withAnimation {
+            let newPage = Page(context: viewContext)
+            newPage.name = ""
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
     }
 }
-
 struct CreationView_Previews: PreviewProvider {
     static var previews: some View {
         CreationView()
