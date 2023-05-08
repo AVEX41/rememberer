@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    @State var tList: String = ""
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
         animation: .default)
@@ -18,6 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
+            
             List {
                 ForEach(pages) { item in
                     NavigationLink {
@@ -48,15 +49,14 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
-                .font(.largeTitle)
         }
     }
 
     private func addItem() {
         withAnimation {
+            
             let newPage = Page(context: viewContext)
-            newPage.name = "Date()"
+            newPage.name = "tList"
 
             do {
                 try viewContext.save()
