@@ -50,9 +50,6 @@ struct CreationView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
-            if notsaved {
-                ContentView()
-            }
         }
     }
 }
