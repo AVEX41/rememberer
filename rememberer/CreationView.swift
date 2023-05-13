@@ -9,8 +9,9 @@ import SwiftUI
 
 
 struct CreationView: View {
+    //var completion: (() -> Void)?
     @State var tList: String = ""
-    @State var notsaved = false
+    @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
@@ -18,32 +19,50 @@ struct CreationView: View {
     private var pages: FetchedResults<Page>
     
     var body: some View {
-        Form {
-            if !notsaved {
-                Text("Saved successful, you can go back now!")
-                Toggle(isOn: $notsaved) {
-                    Label("Or, create another one", systemImage: "rectangle.and.pencil.and.ellipsis")
+                Form {
+                    Section(/*header: Text("Name for new Task List")*/) {
+                        TextField("Task Name", text: $tList)
+                    }
+                    Section {
+                        withAnimation() {
+                            Button(action: {
+                                if Submiter() { presentationMode.wrappedValue.dismiss() }
+                            }) {
+                                Label("Save", systemImage: "square.and.arrow.down")
+                            }
+                        }
+                    }
                 }
-            } else {
-                Section(header: Text("Name for new Task List")) {
-                    TextField("Task Name", text: $tList)
+                .onSubmit {
+                    if Submiter() { presentationMode.wrappedValue.dismiss() }
+                }
+        /*
+        .navigationBarTitle("Creation View")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(
+            leading: Button("Cancel") {
+                presentationMode.wrappedValue.dismiss()
+            },
+            trailing: Button("Save") {
+                if Submiter() {
+                    completion?() // call completion closure to dismiss sheet
                 }
             }
-        }
-        .navigationBarTitle("Settings")
-        .onSubmit {
-            Submiter()
-        }
+        )*/
     }
     
-    func Submiter() {
+    @discardableResult
+    func Submiter() -> Bool {
         withAnimation {
+            if tList == "" {
+                return false
+            }
             let newPage = Page(context: viewContext)
             newPage.name = tList
 
             do {
                 try viewContext.save()
-                notsaved = true
+                return true
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -53,6 +72,7 @@ struct CreationView: View {
         }
     }
 }
+
 struct CreationView_Previews: PreviewProvider {
     static var previews: some View {
         CreationView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)

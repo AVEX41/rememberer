@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var tList: String = ""
+    @State var showCreationView = false
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
         animation: .default)
@@ -30,7 +31,7 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-                ToolbarItem(placement: .destructiveAction) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 // old ToolbarItem that makes an Date() string, into the Database
@@ -40,7 +41,7 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-                */
+                 */
                 ToolbarItem(placement: .navigationBarLeading) {
                     withAnimation() {
                         NavigationLink(destination: CreationView()) {
@@ -48,6 +49,18 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    withAnimation() {
+                        Button("Add Item", systemImage: "minus") {
+                            showCreationView = true
+                        }
+                    }
+                }
+            }
+            //.navigationTitle("Content View")
+            .sheet(isPresented: $showCreationView) {
+                CreationView()
             }
         }
     }
