@@ -11,7 +11,7 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var tList: String = ""
-    @State var showCreationView = false
+    @State var showCreationView: Bool = false
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
         animation: .default)
@@ -41,19 +41,20 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-                 */
+                 
                 ToolbarItem(placement: .navigationBarLeading) {
                     withAnimation() {
                         NavigationLink(destination: CreationView()) {
                             Label("Add Item", systemImage: "plus")
                         }
                     }
-                }
-                
+                }*/
                 ToolbarItem(placement: .navigationBarLeading) {
                     withAnimation() {
-                        Button("Add Item", systemImage: "minus") {
+                        Button(action: {
                             showCreationView = true
+                        }) {
+                            Label("Add Item", systemImage: "plus")
                         }
                     }
                 }
@@ -61,6 +62,9 @@ struct ContentView: View {
             //.navigationTitle("Content View")
             .sheet(isPresented: $showCreationView) {
                 CreationView()
+                    .onDisappear{
+                        showCreationView = false
+                    }
             }
         }
     }
