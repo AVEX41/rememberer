@@ -42,13 +42,17 @@ struct ContentView: View {
                     }
                 }
                  
-                ToolbarItem(placement: .navigationBarLeading) {
-                    withAnimation() {
-                        NavigationLink(destination: CreationView()) {
-                            Label("Add Item", systemImage: "plus")
+                if showCreationView == true {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        withAnimation() {
+                            NavigationLink(destination: CreationView()) {
+                                Label("Add Item", systemImage: "minus")
+                            }
                         }
                     }
-                }*/
+                }
+                 */
+
                 ToolbarItem(placement: .navigationBarLeading) {
                     withAnimation() {
                         Button(action: {
