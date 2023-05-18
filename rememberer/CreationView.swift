@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 struct CreationView: View {
@@ -69,6 +70,20 @@ struct CreationView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+        }
+    }
+    
+    func isNameInDatabase(_ name: String) -> Bool {
+        // Assuming you have a CoreData entity named "Person" with a "name" attribute
+        let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            let matchingNames = try viewContext.fetch(fetchRequest)
+            return !matchingNames.isEmpty
+        } catch {
+            print("Error fetching names: \(error.localizedDescription)")
+            return false
         }
     }
 }
