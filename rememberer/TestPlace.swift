@@ -21,7 +21,7 @@ struct TestPlace: View {
             
             Button("Check") {
                 if isNameInDatabase(nameToCheck) {
-                    // Code to execute if the name is present in the database
+                    //  Code to execute if the name is present in the database
                     print("Name found in database")
                 } else {
                     // Code to execute if the name is not present in the database
@@ -32,7 +32,7 @@ struct TestPlace: View {
     }
     
     func isNameInDatabase(_ name: String) -> Bool {
-        // Assuming you have a CoreData entity named "Person" with a "name" attribute
+        // Assuming you have a CoreData entity named "Page" with a "name" attribute
         let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         

@@ -12,6 +12,7 @@ import CoreData
 struct CreationView: View {
     //var completion: (() -> Void)?
     @State var tList: String = ""
+    @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -21,13 +22,21 @@ struct CreationView: View {
     
     var body: some View {
                 Form {
-                    Section(/*header: Text("Name for new Task List")*/) {
+                    Section(header: Text("\(ShowWar ? "Name is already taken" : "Enter Name")")) {
                         TextField("Task Name", text: $tList)
                     }
                     Section {
                         withAnimation() {
                             Button(action: {
-                                if Submiter() { presentationMode.wrappedValue.dismiss() }
+                                if isNameInDatabase(tList) {
+                                    ShowWar = true
+                                } else {
+                                    if Submiter() {
+                                        presentationMode
+                                            .wrappedValue
+                                            .dismiss()
+                                    }
+                                }
                             }) {
                                 Label("Save", systemImage: "square.and.arrow.down")
                             }
