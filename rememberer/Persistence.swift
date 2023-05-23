@@ -16,7 +16,23 @@ struct PersistenceController {
         for _ in 0..<5 {
             let newItem = Page(context: viewContext)
             newItem.name = "Date()"
+            newItem.id = UUID()
         }
+        // creates the unique and identifieable page, for preview
+        let another = Page(context: viewContext)
+        another.name = "Date()2"
+        another.id = UUID()
+        
+        // Create a task named "task1"
+        let task = Task(context: viewContext)
+        task.content = "task1"
+        //task.id = UUID()
+        
+        // Associate the task with the "Date()2" page
+        task.page = another
+        another.addToTasks(task)
+        
+        // tries to save it to the context
         do {
             try viewContext.save()
         } catch {

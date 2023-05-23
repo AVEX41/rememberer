@@ -69,6 +69,7 @@ struct CreationView: View {
             }
             let newPage = Page(context: viewContext)
             newPage.name = tList
+            newPage.id = UUID()
 
             do {
                 try viewContext.save()

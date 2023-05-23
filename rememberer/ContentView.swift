@@ -22,11 +22,16 @@ struct ContentView: View {
             
             List {
                 ForEach(pages) { item in
+                    /*
                     NavigationLink {
-                        Text("Item at \(item.name!)")
-                    } label: {
+                        Text("Item at \(item.name!) and \(item.id!) id")
+                        //Text("Item at \(item.name!)")
+                    }*/
+                    NavigationLink(destination: TaskListView(page: item)) {
+                        Text(item.name!)
+                    } /*label: {
                         Text("\(item.name!)")
-                    }
+                    }*/
                 }
                 .onDelete(perform: deleteItems)
             }
