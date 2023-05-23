@@ -26,7 +26,8 @@ struct PersistenceController {
         // Create a task named "task1"
         let task = Task(context: viewContext)
         task.content = "task1"
-        //task.id = UUID()
+        task.id = UUID()
+        task.isDone = false
         
         // Associate the task with the "Date()2" page
         task.page = another
