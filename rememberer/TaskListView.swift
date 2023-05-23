@@ -4,6 +4,7 @@
 //
 //  Created by Aleksander Hoff on 23/05/2023.
 //
+// TODO: need to make an ondelete, and make the function that deletes the task
 
 import SwiftUI
 import CoreData
