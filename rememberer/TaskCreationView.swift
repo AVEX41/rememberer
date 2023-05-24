@@ -1,16 +1,15 @@
 //
-//  CreationView.swift
+//  TaskCreationView.swift
 //  rememberer
 //
-//  Created by Aleksander Hoff on 02/05/2023.
+//  Created by Aleksander Hoff on 24/05/2023.
 //
 
 import SwiftUI
 import CoreData
 
 
-struct CreationView: View {
-    //var completion: (() -> Void)?
+struct TaskCreationView: View {
     @State var tList: String = ""
     @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -22,7 +21,7 @@ struct CreationView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("\(ShowWar ? "Name is already taken" : "Enter Name")")) {
+            Section(header: Text("\(ShowWar ? "Name is already taken" : "Enter Name of Task")")) {
                 TextField("Task Name", text: $tList)
             }
             Section {
@@ -46,6 +45,7 @@ struct CreationView: View {
         .onSubmit {
             if Submiter() { presentationMode.wrappedValue.dismiss() }
         }
+       
     }
     
     @discardableResult
@@ -85,8 +85,8 @@ struct CreationView: View {
     }
 }
 
-struct CreationView_Previews: PreviewProvider {
+struct TaskCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        CreationView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        TaskCreationView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

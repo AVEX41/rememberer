@@ -4,7 +4,6 @@
 //
 //  Created by Aleksander Hoff on 23/05/2023.
 //
-// TODO: need to make an ondelete, and make the function that deletes the task
 
 import SwiftUI
 import CoreData
@@ -49,6 +48,7 @@ struct TaskListView: View {
                        Spacer()
                    }
                }
+               .onDelete(perform: deleteItems)
            }
            .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -58,22 +58,40 @@ struct TaskListView: View {
         }
     }
     
+    
     private var filteredTasks: [Task] {
         return tasks.filter { $0.page == page }
     }
     
+    
     private func toggleTaskDone(_ task: Task) {
-            viewContext.perform {
-                task.isDone.toggle()
-                
-                do {
-                    try viewContext.save()
-                } catch {
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                }
+        viewContext.perform {
+            task.isDone.toggle()
+            
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
         }
+    }
+    
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { tasks[$0] }.forEach(viewContext.delete)
+
+            do {
+                try viewContext.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
 }
 /*
 struct TaskListView_Previews: PreviewProvider {

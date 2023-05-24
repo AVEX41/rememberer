@@ -10,6 +10,7 @@
 		693E46402A00D871009CFF45 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E463F2A00D871009CFF45 /* CreationView.swift */; };
 		69404FFA2A1B3B3A004AC689 /* response-page-view.md in Resources */ = {isa = PBXBuildFile; fileRef = 69404FF92A1B3B3A004AC689 /* response-page-view.md */; };
 		69BD5FF12A1CA12D007FBD90 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */; };
+		69E5FE902A1E7F4C00F1B43F /* TaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */; };
 		69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDB29FFB2AC000E2596 /* remembererApp.swift */; };
 		69ECADDE29FFB2AC000E2596 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDD29FFB2AC000E2596 /* ContentView.swift */; };
 		69ECADE029FFB2AE000E2596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69ECADDF29FFB2AE000E2596 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		693E463F2A00D871009CFF45 /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
 		69404FF92A1B3B3A004AC689 /* response-page-view.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "response-page-view.md"; path = "rememberer/response-page-view.md"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreationView.swift; sourceTree = "<group>"; };
 		69ECADD829FFB2AC000E2596 /* rememberer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69ECADDB29FFB2AC000E2596 /* remembererApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remembererApp.swift; sourceTree = "<group>"; };
 		69ECADDD29FFB2AC000E2596 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		69ECADDA29FFB2AC000E2596 /* rememberer */ = {
 			isa = PBXGroup;
 			children = (
+				69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */,
 				69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */,
 				69ECADDB29FFB2AC000E2596 /* remembererApp.swift */,
 				69ECADDD29FFB2AC000E2596 /* ContentView.swift */,
@@ -157,6 +160,7 @@
 			files = (
 				69ECADE529FFB2AE000E2596 /* Persistence.swift in Sources */,
 				693E46402A00D871009CFF45 /* CreationView.swift in Sources */,
+				69E5FE902A1E7F4C00F1B43F /* TaskCreationView.swift in Sources */,
 				69ECADE829FFB2AE000E2596 /* rememberer.xcdatamodeld in Sources */,
 				69ECADDE29FFB2AC000E2596 /* ContentView.swift in Sources */,
 				69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */,
