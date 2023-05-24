@@ -19,7 +19,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            
+                    
             List {
                 ForEach(pages) { item in
                     /*
@@ -76,10 +76,18 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { pages[$0] }.forEach(viewContext.delete)
+            offsets.map { pages[$0] }.forEach { page in
+                // Delete tasks associated with the page
+                page.tasks?.forEach { task in
+                    viewContext.delete(task as! NSManagedObject)
+                }
+                
+                // Delete the page itself
+                viewContext.delete(page)
+            }
 
             do {
                 try viewContext.save()

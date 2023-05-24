@@ -11,6 +11,7 @@ import CoreData
 struct TaskListView: View {
     let page: Page
     
+    @State var showCreationView: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
@@ -51,10 +52,25 @@ struct TaskListView: View {
                .onDelete(perform: deleteItems)
            }
            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+               ToolbarItem(placement: .destructiveAction) {
                     EditButton()
                 }
+               ToolbarItem(placement: .navigationBarTrailing) {
+                   withAnimation() {
+                       Button(action: {
+                           showCreationView = true
+                       }) {
+                           Label("Add Item", systemImage: "plus")
+                       }
+                   }
+               }
             }
+           .sheet(isPresented: $showCreationView) {
+               TaskCreationView(page: page)
+                   .onDisappear{
+                       showCreationView = false
+                   }
+           }
         }
     }
     

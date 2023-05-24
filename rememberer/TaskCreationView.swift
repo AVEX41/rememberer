@@ -10,6 +10,8 @@ import CoreData
 
 
 struct TaskCreationView: View {
+    let page: Page
+    
     @State var tList: String = ""
     @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -18,6 +20,11 @@ struct TaskCreationView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Page.name, ascending: true)],
         animation: .default)
     private var pages: FetchedResults<Page>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.content, ascending: true)],
+        animation: .default)
+    private var tasks: FetchedResults<Task>
     
     var body: some View {
         Form {
@@ -54,9 +61,15 @@ struct TaskCreationView: View {
             if tList == "" {
                 return false
             }
+            /*
             let newPage = Page(context: viewContext)
             newPage.name = tList
-            newPage.id = UUID()
+            newPage.id = UUID()*/
+            
+            let newTask = Task(context: viewContext)
+            newTask.content = tList
+            newTask.page = page
+            newTask.id = UUID()
 
             do {
                 try viewContext.save()
@@ -84,9 +97,10 @@ struct TaskCreationView: View {
         }
     }
 }
-
+/*
 struct TaskCreationView_Previews: PreviewProvider {
     static var previews: some View {
         TaskCreationView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+*/
