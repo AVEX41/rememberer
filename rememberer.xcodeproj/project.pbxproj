@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		693E46402A00D871009CFF45 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E463F2A00D871009CFF45 /* CreationView.swift */; };
-		69404FFA2A1B3B3A004AC689 /* response-page-view.md in Resources */ = {isa = PBXBuildFile; fileRef = 69404FF92A1B3B3A004AC689 /* response-page-view.md */; };
 		69BD5FF12A1CA12D007FBD90 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */; };
 		69E5FE902A1E7F4C00F1B43F /* TaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */; };
 		69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDB29FFB2AC000E2596 /* remembererApp.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		693E463E2A00D725009CFF45 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		693E463F2A00D871009CFF45 /* CreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationView.swift; sourceTree = "<group>"; };
-		69404FF92A1B3B3A004AC689 /* response-page-view.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = "response-page-view.md"; path = "rememberer/response-page-view.md"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreationView.swift; sourceTree = "<group>"; };
 		69ECADD829FFB2AC000E2596 /* rememberer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,7 +46,6 @@
 		69ECADCF29FFB2AC000E2596 = {
 			isa = PBXGroup;
 			children = (
-				69404FF92A1B3B3A004AC689 /* response-page-view.md */,
 				693E463E2A00D725009CFF45 /* README.md */,
 				69ECADDA29FFB2AC000E2596 /* rememberer */,
 				69ECADD929FFB2AC000E2596 /* Products */,
@@ -147,7 +144,6 @@
 			files = (
 				69ECADE329FFB2AE000E2596 /* Preview Assets.xcassets in Resources */,
 				69ECADE029FFB2AE000E2596 /* Assets.xcassets in Resources */,
-				69404FFA2A1B3B3A004AC689 /* response-page-view.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
