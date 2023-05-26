@@ -10,7 +10,6 @@ import CoreData
 
 
 struct CreationView: View {
-    //var completion: (() -> Void)?
     @State var tList: String = ""
     @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -62,10 +61,19 @@ struct CreationView: View {
                 try viewContext.save()
                 return true
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = "Save Failed"
+                notificationContent.body = "Failed to save data. Please try again later."
+                
+                let request = UNNotificationRequest(identifier: "SaveFailedNotification", content: notificationContent, trigger: nil)
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Failed to schedule notification: \(error)")
+                    } else {
+                        print("Notification scheduled successfully.")
+                    }
+                }
+                return false
             }
         }
     }
