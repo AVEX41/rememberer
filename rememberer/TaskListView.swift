@@ -24,10 +24,9 @@ struct TaskListView: View {
     private var tasks: FetchedResults<Task>
     
     var body: some View {
-        // the old one, 
         VStack {
-            Text("Tasks for \(page.name!)")
-               .font(.title)
+            Text("Tasks for \(page.name ?? "Unknown Page")")
+                .font(.title)
            
            List {
                ForEach(filteredTasks) { task in

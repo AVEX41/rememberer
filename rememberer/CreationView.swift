@@ -10,7 +10,6 @@ import CoreData
 
 
 struct CreationView: View {
-    @FocusState var nameInFocus: Bool
     @State var tList: String = ""
     @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -24,7 +23,6 @@ struct CreationView: View {
         Form {
             Section(header: Text("\(ShowWar ? "Name is already taken" : "Enter Name")")) {
                 TextField("Task Name", text: $tList)
-                    .focused($nameInFocus)
             }
             Section {
                 withAnimation() {

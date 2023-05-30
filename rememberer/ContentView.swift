@@ -47,11 +47,6 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showCreationView) {
                 CreationView()
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                            CreationView.nameInFocus = true
-                          }
-                    }
                     .onDisappear{
                         showCreationView = false
                     }
