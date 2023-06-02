@@ -13,6 +13,7 @@ import CoreData
 struct TaskCreationView: View {
     let page: Page
     
+    @FocusState private var textFocused: Bool
     @State var tList: String = ""
     @State var ShowWar: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -31,6 +32,7 @@ struct TaskCreationView: View {
         Form {
             Section(header: Text("\(ShowWar ? "Name is already taken" : "Enter Name of Task")")) {
                 TextField("Task Name", text: $tList)
+                    .focused($textFocused)
             }
             Section {
                 withAnimation() {
@@ -52,6 +54,9 @@ struct TaskCreationView: View {
         }
         .onSubmit {
             if Submiter() { presentationMode.wrappedValue.dismiss() }
+        }
+        .onAppear {
+            textFocused = true
         }
        
     }

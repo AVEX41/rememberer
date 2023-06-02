@@ -4,8 +4,6 @@
 //
 //  Created by Aleksander Hoff on 01/05/2023.
 //
-// TODO: change the relationship between the tasks and pages with ID, intead of what i have now
-// TODO: on appear of sheets, add autofocus
 
 import SwiftUI
 import CoreData
