@@ -4,7 +4,7 @@
 //
 //  Created by Aleksander Hoff on 01/05/2023.
 //
-// TODO: Link the page-id to the task-id
+// Make an identifier, which is 128 bytes and use the UUID() to create for page, and when a task is created, it gets the page's identifier
 
 import SwiftUI
 
