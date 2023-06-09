@@ -11,7 +11,7 @@ import CoreData
 
 
 struct TaskCreationView: View {
-    let page: Page
+    @State var page: Page
     
     @FocusState private var textFocused: Bool
     @State var tList: String = ""
