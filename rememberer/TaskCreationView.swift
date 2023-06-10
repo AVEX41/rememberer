@@ -67,10 +67,6 @@ struct TaskCreationView: View {
             if tList == "" {
                 return false
             }
-            /*
-            let newPage = Page(context: viewContext)
-            newPage.name = tList
-            newPage.id = UUID()*/
             
             let newTask = Task(context: viewContext)
             newTask.content = tList
@@ -100,7 +96,6 @@ struct TaskCreationView: View {
     }
     
     func isNameInDatabase(_ name: String) -> Bool {
-        // Assuming you have a CoreData entity named "Person" with a "name" attribute
         let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         

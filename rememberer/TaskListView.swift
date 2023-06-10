@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct TaskListView: View {
-    let page: Page
+    @State var page: Page
     
     @State var showCreationView: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
@@ -95,7 +95,7 @@ struct TaskListView: View {
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { tasks[$0] }.forEach(viewContext.delete)
+            offsets.map { filteredTasks[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
