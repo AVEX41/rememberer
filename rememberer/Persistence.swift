@@ -10,6 +10,7 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
     // remove the preview variable when code is ready
+	
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
