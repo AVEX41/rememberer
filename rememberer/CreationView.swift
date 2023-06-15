@@ -13,7 +13,7 @@ struct CreationView: View {
     @FocusState private var textFocused: Bool
     
     @State var tList: String = ""
-    @State var ShowWar: Bool = false
+    @State var ShowWar: Bool = false // show warning
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
@@ -85,7 +85,6 @@ struct CreationView: View {
     }
     
     func isNameInDatabase(_ name: String) -> Bool {
-        // Assuming you have a CoreData entity named "Person" with a "name" attribute
         let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         

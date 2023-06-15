@@ -15,11 +15,13 @@ one can make multiple pages that are a "category" with multiple tasks. One can u
 This is where the application starts. this view lists all the pages in the database. it lists them as a navigationlink and links it to a TaskListView   
 This file also includes two ToolBarItems: "plus-icon" and "editbutton".  
 the plus-icon is linked to the creationView.  
-the editbutton allowes the user to delete the pages (including its tasks)  
+the editbutton allowes the user to delete the pages (including its tasks). This happens in the deleteitems function
 
 #### CreationView.swift
 This file is responsible for creating a new page. it is presented as a sheet when the plus-icon on the ContentView is clicked.  
 This file has a textfield for entering the name of the page, and a save button to save it to the database (and the viewcontext).
+The ShowWar (ShowWarning) variable is to give the user feedback that the name is taken. the code checks the database if the name is taken in the isNameInDatabase function.
+The tList variable is a variable that keep track of the name that the user types into the textfield.
 
 #### TaskListView.swift
 This file has a parameter of a page and is showed when a page on the ContentView is pressed.  

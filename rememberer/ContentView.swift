@@ -51,31 +51,6 @@ struct ContentView: View {
             }
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            
-            let newPage = Page(context: viewContext)
-            newPage.name = "tList"
-
-            do {
-                try viewContext.save()
-            } catch {
-                let notificationContent = UNMutableNotificationContent()
-                notificationContent.title = "Save Failed"
-                notificationContent.body = "Failed to save data. Please try again later."
-                
-                let request = UNNotificationRequest(identifier: "SaveFailedNotification", content: notificationContent, trigger: nil)
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print("Failed to schedule notification: \(error)")
-                    } else {
-                        print("Notification scheduled successfully.")
-                    }
-                }
-            }
-        }
-    }
     
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
