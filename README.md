@@ -3,112 +3,44 @@
 #### Video Demo:  https://youtu.be/LwI0_nZOIiU
 #### Description:
 
-The rememberer is an application to keep track of all the tasks that one need to do. one example is going to school: One need to pack the computer, notebook and the pencils.
+The rememberer is an application to keep track of all the tasks that one need to do. One example is going to school: One need to pack the computer, notebook and the pencils.
 
-To execute this application, one need to open the "rememberer.xcodeproj" into xcode. and then simulate the app on the simulator, on a Mac
+To execute this application, one need to open the "rememberer.xcodeproj" into xcode. And then simulate the app on the simulator, on a Mac
 
-### Structure
-one can make multiple pages that are a "category" with multiple tasks. One can use the school-example here: "school" is the category that contains multiple tasks such as "computer", "notebook" etc.
+within the application, one can make multiple pages containing multiple tasks. 
+For example, a page can be school (what you need to bring with you when going to the lecture) or shoppinglist, and a task is the individual thing to remember or do.
+When the individual tasks are completed, you can mark them as completed  
+Both page and tasks can be deleted. When deleting a page, all its tasks will be deleted.
 
 ### Files used in this project
+
+#### remembererApp.swift
+This is the official start of the application that calls ContentView when it executes.
+
 #### ContentView.swift
-This is where the application starts. this view lists all the pages in the database. it lists them as a navigationlink and links it to a TaskListView   
+This is the startup view and it lists all the pages in the database. It lists them as a navigationlink and links it to a TaskListView   
 This file also includes two ToolBarItems: "plus-icon" and "editbutton".  
-the plus-icon is linked to the creationView.  
-the editbutton allowes the user to delete the pages (including its tasks). This happens in the deleteitems function:   
-
-``` swift
-	private func deleteItems(offsets: IndexSet) {
-		withAnimation {
-			offsets.map { pages[$0] }.forEach { page in
-				// Delete tasks associated with the page
-				page.tasks?.forEach { task in
-					viewContext.delete(task as! NSManagedObject)
-				}
-				
-				// Delete the page itself
-				viewContext.delete(page)
-			}
-
-			do {
-				try viewContext.save()
-			} catch {
-				let notificationContent = UNMutableNotificationContent()
-				notificationContent.title = "Save Failed"
-				notificationContent.body = "Failed to save data. Please try again later."
-				
-				let request = UNNotificationRequest(identifier: "SaveFailedNotification", content: notificationContent, trigger: nil)
-				UNUserNotificationCenter.current().add(request) { error in
-					if let error = error {
-						print("Failed to schedule notification: \(error)")
-					} else {
-						print("Notification scheduled successfully.")
-					}
-				}
-			}
-		}
-	}
-```
+The plus-icon is linked to the creationView.  
+The editbutton allowes the user to delete the pages (including its tasks). This happens in the deleteitems function.
+To be sure that it deletes all the tasks in the deleted page, i have added cascade deletion in the datamodel
+The edit button is activating editmode, with the possibility for the user to delete the page
 
 #### CreationView.swift
-This file is responsible for creating a new page. it is presented as a sheet when the plus-icon on the ContentView is clicked.  
-This file has a textfield for entering the name of the page, and a save button to save it to the database (and the viewcontext).
-The ShowWar (ShowWarning) variable is to give the user feedback that the name is taken. the code checks the database if the name is taken in the isNameInDatabase function:
-
-``` swift
-	@State var ShowWar: Bool = false // show warning
-	
-	func isNameInDatabase(_ name: String) -> Bool {
-        let fetchRequest: NSFetchRequest<Page> = Page.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-        
-        do {
-            let matchingNames = try viewContext.fetch(fetchRequest)
-            return !matchingNames.isEmpty
-        } catch {
-            print("Error fetching names: \(error.localizedDescription)")
-            return false
-        }
-    }
-```
+This file is responsible for creating a new page, it is presented as a sheet when the plus-icon on the ContentView is clicked.  
+This file has a textfield for entering the name of the page, and a save button to save it to the database and the viewcontext.
+The ShowWar (ShowWarning) is ment to send feedback to the user, if they have inputed something invalid, meaning the textfield is empty
 
 The tList variable is a variable that keep track of the name that the user types into the textfield.
 
-``` swift
-    @State var tList: String = ""
-    
-	TextField("Task Name", text: $tList)
-```
-
 #### TaskListView.swift
-This file has a parameter of a page and is showed when a page on the ContentView is pressed:  
+This view is displaying all of the selected page's tasks and is triggered when the user clicks on a page in the ContentView
+This file has a parameter of type "Page" to represent the correct page.
 
-```swift
-    @State var page: Page
-```
-
-This file presents all the tasks of a spesific view, for example: "computer", "notebook" and "pencils", on the school page
-This file also has two ToolBarItems: "plus-icon" and "editbutton". the plus-icon works the same as the plus-icon on contentview, except it is ment to create new tasks and is linked to TaskCreationView
-
-This file also displays if the task is done, and can be toggled with a function called toggleTaskDone:
-
-``` swift
-    private func toggleTaskDone(_ task: Task) {
-        viewContext.perform {
-            task.isDone.toggle()
-            
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-	}
-```
-
+An example is the school page that wil have the following tasks: ["computer", "notebook", "pencils"]
+This file also has two ToolBarItems: "plus-icon" and "editbutton". The plus-icon works the same as the plus-icon on contentview, except it is ment to create new tasks and is linked to TaskCreationView
+The edit button is activating editmode, with the possibility for the user to delete the task
+This file also displays if the task is done, and can be toggled with a function called toggleTaskDone
 To filter all the tasks that one want to display, there is a function for that called filteredTasks:
-
 ``` swift
     private var filteredTasks: [Task] {
         return tasks.filter { $0.page == page }
@@ -116,14 +48,13 @@ To filter all the tasks that one want to display, there is a function for that c
 ```
 
 #### TaskCreationView.swift
-This file is presented as a sheet from TaskListView. this file's job is to create a task on the viewcontext and database. 
+This file is presented as a sheet from TaskListView. This file's job is to create a task on the viewcontext and database. 
 This file has the same structure as the CreationView file; textfield and a save button.
 
-The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task (and page)
+The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task
 The ShowWar and tList work the same on this view as on the CreationView
 
-#### remembererApp.swift
-This is the official start of the application that calls ContentView when it executes.
+
 
 #### rememberer.xcdatamodeld
 This is the core-data datamodel of the application
@@ -137,4 +68,10 @@ It has two entities:
 	- isDone - keeps track of what tasks are done
 	
 
-the Page has a one to many relationship between the Task entity.
+The Page has a one to many relationship between the Task entity.
+This datamodel also has a cascade deletion rule; when a page is deleted, all its tasks deleted
+
+#### Persistence.swift
+This file has two usecases: 
+- Create the preview variable that is used for xcode's preview.
+- Make the persistentContainer
