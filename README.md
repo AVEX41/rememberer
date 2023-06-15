@@ -120,6 +120,7 @@ This file is presented as a sheet from TaskListView. this file's job is to creat
 This file has the same structure as the CreationView file; textfield and a save button.
 
 The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task (and page)
+The ShowWar and tList work the same on this view as on the CreationView
 
 #### remembererApp.swift
 This is the official start of the application that calls ContentView when it executes.
