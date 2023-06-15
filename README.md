@@ -119,7 +119,7 @@ To filter all the tasks that one want to display, there is a function for that c
 This file is presented as a sheet from TaskListView. this file's job is to create a task on the viewcontext and database. 
 This file has the same structure as the CreationView file; textfield and a save button.
 
-Alot of the functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task (and page)
+The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task (and page)
 
 #### remembererApp.swift
 This is the official start of the application that calls ContentView when it executes.
