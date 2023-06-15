@@ -126,5 +126,14 @@ This is the official start of the application that calls ContentView when it exe
 
 #### rememberer.xcdatamodeld
 This is the core-data datamodel of the application
-It has two entities: Page and Task
+It has two entities:
+ - Page
+	- name - the name of the Page
+	- id - unique ID
+ - Task
+	- content - the name/content of the Task
+	- id - unique ID
+	- isDone - keeps track of what tasks are done
+	
+
 the Page has a one to many relationship between the Task entity.
