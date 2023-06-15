@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		693E46402A00D871009CFF45 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E463F2A00D871009CFF45 /* CreationView.swift */; };
+		695C78682A3B6CD000F52776 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 693E463E2A00D725009CFF45 /* README.md */; };
 		69BD5FF12A1CA12D007FBD90 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD5FF02A1CA12D007FBD90 /* TaskListView.swift */; };
 		69E5FE902A1E7F4C00F1B43F /* TaskCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E5FE8F2A1E7F4C00F1B43F /* TaskCreationView.swift */; };
 		69ECADDC29FFB2AC000E2596 /* remembererApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69ECADDB29FFB2AC000E2596 /* remembererApp.swift */; };
@@ -142,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695C78682A3B6CD000F52776 /* README.md in Resources */,
 				69ECADE329FFB2AE000E2596 /* Preview Assets.xcassets in Resources */,
 				69ECADE029FFB2AE000E2596 /* Assets.xcassets in Resources */,
 			);
