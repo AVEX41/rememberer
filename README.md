@@ -52,7 +52,10 @@ This file is presented as a sheet from TaskListView. This file's job is to creat
 This file has the same structure as the CreationView file; textfield and a save button.
 
 The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task
-The ShowWar and tList work the same on this view as on the CreationView
+The ShowWar and tList work the same on this view as on the CreationView.
+
+I had to choose a design for the views "TaskCreationView" and "CreationView", but there are multiple ways one could do it: One could for example merge them into one, and give them a parameter to signal if the user wants to create a new page or task. But in this project, i choose to have two seperate files.
+There is also multiple ways of creating the save button. i choose to make it a form-button so that it is easier to see it. Also, if you press return when you are done writing the name, it will save it without the user clicking save. This design is only positive to put in use if there is only one field. if there are multiple, one could risking completing the form without the user completing it.
 
 
 
@@ -71,7 +74,10 @@ It has two entities:
 The Page has a one to many relationship between the Task entity.
 This datamodel also has a cascade deletion rule; when a page is deleted, all its tasks deleted
 
+After doing research for how to structure a datamodel, I came up with this that have Page and Task. 
+I designed it to be easy to use in code and robust, it is easy to use because I can call *page.task*, and *task.page* in my code and have the data that i want after i have gathered the data from the database through a fetchrequest.
+
 #### Persistence.swift
-This file has two usecases: 
+This file has two usecases: 11
 - Create the preview variable that is used for xcode's preview.
 - Make the persistentContainer
