@@ -54,6 +54,7 @@ This file has the same structure as the CreationView file; textfield and a save 
 The functions used in this view are very similar to the ones in CreationView, such as the "Submitter" that checks if the text inputed is empty, before it creates a new task
 The ShowWar and tList work the same on this view as on the CreationView.
 
+##### Design for TaskCreationView and CreationView
 I had to choose a design for the views "TaskCreationView" and "CreationView", but there are multiple ways one could do it: One could for example merge them into one, and give them a parameter to signal if the user wants to create a new page or task. But in this project, i choose to have two seperate files.
 There is also multiple ways of creating the save button. i choose to make it a form-button so that it is easier to see it. Also, if you press return when you are done writing the name, it will save it without the user clicking save. This design is only positive to put in use if there is only one field. if there are multiple, one could risking completing the form without the user completing it.
 
