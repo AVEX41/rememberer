@@ -1,6 +1,6 @@
 #  Rememberer
 
-#### Video Demo:  https://youtu.be/LwI0_nZOIiU
+
 #### Description:
 
 The rememberer is an application to keep track of all the tasks that one need to do. One example is going to school: One need to pack the computer, notebook and the pencils.
